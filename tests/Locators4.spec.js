@@ -25,12 +25,48 @@ test("element states methods", async ({ page }) => {
 
   //isEnabled()
 
-  await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
-  let ele1 = page.locator("#displayed-text");
-  await expect(ele1).toBeEnabled();
+  // await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
+  // let ele1 = page.locator("#displayed-text");
+  // await expect(ele1).toBeEnabled();
 
-  await page.locator("#hide-textbox").click();
+  // await page.locator("#hide-textbox").click();
 
   //   let ele2 = page.locator(".inputs.displayed-class");
-  await expect(ele1).toBeHidden();
+  // await expect(ele1).toBeHidden();
+
+  // await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
+  // let check1 = await page.locator('input[value="radio1"]');
+  // let expValue = await check1.isChecked();
+  // await expect(expValue).toBeFalsy();
+  // await check1.click();
+  // expValue = check1.isChecked();
+  // await expect(expValue).toBeTruthy();
+
+
+
+   await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
+   let button1 = await page.locator("#opentab");
+   let enb = await button1.isEnabled();
+   await expect(enb).toBeTruthy();
+
+
+
+  
+
+
+
+
 });
+
+test.only("validate waitFoe method",async({page})=>{
+   await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
+   let hideBtn = page.locator("#hide-textbox");
+   let showBtn = page.locator("#show-textbox");
+   let inputBtn = page.locator("#displayed-text");
+   await showBtn.waitFor({state:'visible'});
+   await hideBtn.click();
+   await inputBtn.waitFor({state:'hidden'})
+
+
+
+})

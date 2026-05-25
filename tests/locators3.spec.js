@@ -3,7 +3,7 @@ import {test,expect} from '@playwright/test'
 // xpath, css , id , getbyText, getByrole, getByLabel, getByPlaceholder
 
 
-test.only("verify header",async({page})=>{
+test("verify header",async({page})=>{
     // element selection methods ---first(), last(), nth(), filter(), locator(), and(), or()
 
     await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
